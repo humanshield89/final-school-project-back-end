@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    command: mongod
+    ports:
+      - "56:27017"
+
+  minio:
+    image: minio/minio
+    container_name: minio
+    command: server ~/minio --console-address ":9090"
+    ports:
+      - "9000:9000"
+      - "9090:9090"
